@@ -1,3 +1,5 @@
+import 'package:expenses/domain/transaction/transcation_model.dart';
+import 'package:expenses/domain/transaction/transcation_repo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -11,6 +13,22 @@ class AddAccount extends StatefulWidget {
 }
 
 class _AddAccountState extends State<AddAccount> {
+    List<TransactionModel> transaction = [];
+
+ @override
+  void initState() {
+    loadAccType();
+  }
+
+   Future<void> loadAccType() async {
+    List<TransactionModel> res = await loadTransactionData();
+    setState(() {
+      transaction = res;
+    });
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,13 +51,27 @@ class _AddAccountState extends State<AddAccount> {
                 border: OutlineInputBorder(), labelText: 'Account Name'),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: TextFormField(
-            decoration: InputDecoration(
-                border: OutlineInputBorder(), labelText: 'Type'),
-          ),
-        ),
+       Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: DropdownButtonFormField<String>(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Account Type',
+                      ),
+                      onChanged: (value) {},
+                      items: transaction.map<DropdownMenuItem<String>>(
+                          (TransactionModel transactions) {
+                        return DropdownMenuItem<String>(
+                          value: transactions.type,
+                          child: Text(transactions.type),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+
+
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: TextFormField(

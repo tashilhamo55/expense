@@ -21,7 +21,7 @@ class _AddTranscationState extends State<AddTransaction> {
   @override
   void initState() {
     loadData();
-    loadDataTrans();
+    loadDataTransaction();
   }
 
   Future<void> loadData() async {
@@ -31,7 +31,7 @@ class _AddTranscationState extends State<AddTransaction> {
     });
   }
 
-  Future<void> loadDataTrans() async {
+  Future<void> loadDataTransaction() async {
     List<TransactionModel> res = await loadTransactionData();
     setState(() {
       transaction = res;
@@ -86,6 +86,7 @@ class _AddTranscationState extends State<AddTransaction> {
                       }).toList(),
                     ),
                   ),
+
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: DropdownButtonFormField<String>(
