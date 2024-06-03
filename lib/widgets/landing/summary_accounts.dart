@@ -7,7 +7,6 @@ import 'package:flutter/widgets.dart';
 
 import '../../data/model/account/account_model.dart';
 
-
 class SummaryAccount extends StatefulWidget {
   const SummaryAccount({super.key});
 
@@ -16,19 +15,17 @@ class SummaryAccount extends StatefulWidget {
 }
 
 class _SummaryAccountState extends State<SummaryAccount> {
-  
-  List <AccountModel> accounts =[];
+  List<AccountModel> accounts = [];
 
-  void initState(){
+  void initState() {
     loadData();
+  }
 
-  }
-  Future <void> loadData() async{
-  List<AccountModel> res= await loadAccountData();
-  setState((){
+  Future<void> loadData() async {
+    List<AccountModel> res = await loadAccountData();
+    setState(() {
       accounts = res;
-  }
-  );
+    });
   }
 
   @override
@@ -58,7 +55,11 @@ class _SummaryAccountState extends State<SummaryAccount> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: accounts.map((val) => AccountCard(val),).toList(),
+                children: accounts
+                    .map(
+                      (val) => AccountCard(val),
+                    )
+                    .toList(),
               ),
             ),
           ),

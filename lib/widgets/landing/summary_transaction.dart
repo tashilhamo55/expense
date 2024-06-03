@@ -7,7 +7,6 @@ import 'package:expenses/plugins/http.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
 class SummaryTransaction extends StatefulWidget {
   const SummaryTransaction({super.key});
 
@@ -16,20 +15,18 @@ class SummaryTransaction extends StatefulWidget {
 }
 
 class _SummaryTransactionState extends State<SummaryTransaction> {
-  List<TransactionModel> transactions =[];
+  List<TransactionModel> transactions = [];
 
-  @override 
-  void initState(){
+  @override
+  void initState() {
     loadData();
   }
 
-  Future<void> loadData() async{
+  Future<void> loadData() async {
     List<TransactionModel> res = await loadTransactionData();
     setState(() {
-    transactions =res;  
-    
+      transactions = res;
     });
-
   }
 
   @override
@@ -46,19 +43,25 @@ class _SummaryTransactionState extends State<SummaryTransaction> {
             child:
                 Text('Recent Transaction', style: TypoStyles().kSectionHeader),
           ),
+          
           Container(
             child: Column(
-              children: transactions.map((transaction)=>  ListTile(
-                title: Text(transaction.title),
-                subtitle: Text(DateFormat.yMMMd()
-                    .format(DateTime.parse(transaction.createdAt))),
-                trailing:
-                Text('Nu. ${transaction.amount}', style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: transaction.type == 'EXPENSE' ? Colors.red : Colors.green
-                )),
-              ),).toList(),
+              children: transactions
+                  .map(
+                    (transaction) => ListTile(
+                      title: Text(transaction.title),
+                      subtitle: Text(DateFormat.yMMMd()
+                          .format(DateTime.parse(transaction.createdAt))),
+                      trailing: Text('Nu. ${transaction.amount}',
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: transaction.type == 'EXPENSE'
+                                  ? Colors.red
+                                  : Colors.green)),
+                    ),
+                  )
+                  .toList(),
             ),
           )
         ],
@@ -66,4 +69,3 @@ class _SummaryTransactionState extends State<SummaryTransaction> {
     );
   }
 }
- 

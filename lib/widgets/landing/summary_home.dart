@@ -16,27 +16,21 @@ class SummaryHome extends StatefulWidget {
 }
 
 class _SummaryHomeState extends State<SummaryHome> {
-  
-   SummaryModel summary = SummaryModel();
+  SummaryModel summary = SummaryModel();
 
   @override
-
-  void initState(){
+  void initState() {
     loadData();
-
   }
 
-Future <void> loadData() async{
-  SummaryModel res= await loadSummaryData();
-  setState((){
+  Future<void> loadData() async {
+    SummaryModel res = await loadSummaryData();
+    setState(() {
       summary = res;
+    });
   }
-  );
-  }
 
-
-
-   @override
+  @override
   Widget build(BuildContext context) {
     return Container(
         // color: Colors.blueAccent,
@@ -69,7 +63,7 @@ Future <void> loadData() async{
                                   TextStyle(fontSize: 20, color: Colors.black),
                             ),
                             Text(
-                              'Nu.'+summary.openingBalance.toString(),
+                              'Nu.' + summary.openingBalance.toString(),
                               style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
@@ -111,13 +105,13 @@ Future <void> loadData() async{
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                               'Total Expense',
+                                              'Total Expense',
                                               style: TextStyle(
                                                   fontSize: 16,
                                                   color: Colors.black),
                                             ),
                                             Text(
-                                               'Nu. ${summary.expenses}',
+                                              'Nu. ${summary.expenses}',
                                               style: TextStyle(
                                                   fontSize: 24,
                                                   color: Colors.black),

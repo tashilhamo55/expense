@@ -7,41 +7,39 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class AddTranscation extends StatefulWidget {
-  const AddTranscation({super.key});
+class AddTransaction extends StatefulWidget {
+  const AddTransaction({super.key});
 
   @override
-  State<AddTranscation> createState() => _AddTranscationState();
+  State<AddTransaction> createState() => _AddTranscationState();
 }
 
-class _AddTranscationState extends State<AddTranscation> {
- 
-    List<AccountModel> accounts = []; 
-    List<TransactionModel> transaction= [];  
-  
+class _AddTranscationState extends State<AddTransaction> {
+  List<AccountModel> accounts = [];
+  List<TransactionModel> transaction = [];
+
   @override
-  void initState(){
-  loadData();
-  loadDataTrans();
+  void initState() {
+    loadData();
+    loadDataTrans();
   }
 
-Future<void> loadData() async{
-  List<AccountModel> res =await loadAccountData();  
-  setState(() {
-    accounts = res;
-  });
-} 
+  Future<void> loadData() async {
+    List<AccountModel> res = await loadAccountData();
+    setState(() {
+      accounts = res;
+    });
+  }
 
-Future<void> loadDataTrans() async{
-  List<TransactionModel> res =await loadTransactionData();  
-  setState(() {
-    transaction = res;
-  });
-} 
+  Future<void> loadDataTrans() async {
+    List<TransactionModel> res = await loadTransactionData();
+    setState(() {
+      transaction = res;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-
     //String selectedAccount;
 
     return Scaffold(
@@ -49,13 +47,10 @@ Future<void> loadDataTrans() async{
           title: Text('Add Transaction'),
         ),
         body: Container(
-            
-          child: Column(
-          
+            child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              
               child: Column(
                 children: [
                   Padding(
@@ -72,49 +67,45 @@ Future<void> loadDataTrans() async{
                           border: OutlineInputBorder(), labelText: 'Date'),
                     ),
                   ),
-                  
-                Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: DropdownButtonFormField<String>(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Account',
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: DropdownButtonFormField<String>(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Account',
+                      ),
+                      onChanged: (value) {},
+                      items: accounts.map<DropdownMenuItem<String>>(
+                          (AccountModel account) {
+                        return DropdownMenuItem<String>(
+                          value: account.title,
+                          child: Text(account.title),
+                        );
+                      }).toList(),
+                    ),
                   ),
-                  onChanged: (value) {
-                    
-                  },
-                  items: accounts.map<DropdownMenuItem<String>>((AccountModel account) {
-                    return DropdownMenuItem<String>(
-                      value: account.title,
-                      child: Text(account.title),
-                    );
-                  }).toList(),
-                ),
-              ),
-                  
-          Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: DropdownButtonFormField<String>(
-                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Expenses',
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: DropdownButtonFormField<String>(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Expenses',
+                      ),
+                      onChanged: (value) {},
+                      items: transaction.map<DropdownMenuItem<String>>(
+                          (TransactionModel transactions) {
+                        return DropdownMenuItem<String>(
+                          value: transactions.type,
+                          child: Text(transactions.type),
+                        );
+                      }).toList(),
+                    ),
                   ),
-                  onChanged: (value) {
-                    
-                  },
-                  items: transaction.map<DropdownMenuItem<String>>((TransactionModel transactions) {
-                    return DropdownMenuItem<String>(
-                      value: transactions.type,
-                      child: Text(transactions.type),
-                    );
-                  }).toList(),
-                ),
-              ),
-
-              Padding(
+                  Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: TextFormField(
                       decoration: InputDecoration(

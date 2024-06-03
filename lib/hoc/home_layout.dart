@@ -2,6 +2,7 @@
 import 'package:expenses/screens/account/account_screen.dart';
 import 'package:expenses/screens/account/addaccount.dart';
 import 'package:expenses/screens/landing/home_screen.dart';
+import 'package:expenses/screens/transaction/addtransaction.dart';
 import 'package:flutter/material.dart';
 
 class HomeLayout extends StatefulWidget {
@@ -14,10 +15,11 @@ class HomeLayout extends StatefulWidget {
 class _HomeLayoutState extends State<HomeLayout> {
   int _selectedIndex = 0;
 
-  List<String> titles = ['Home', 'Account', 'Profile'];
+  List<String> titles = ['Home', 'Account', 'Profile',];
   List<Widget> screens = [
     HomeScreen(),
     AccountScreen(),
+    // AddTransaction(),
     AddAccount(),
   ];
 
@@ -43,6 +45,8 @@ class _HomeLayoutState extends State<HomeLayout> {
         BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
         BottomNavigationBarItem(icon: Icon(Icons.star),label: 'Accounts'),
         BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Add Account'),
+        // BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Add Account'),
+
 
 
         ],

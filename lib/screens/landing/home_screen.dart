@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SummaryHome(),
             SummaryAccount(),
             SummaryTransaction(),
+            
             Container(
                
                 )
@@ -52,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: FloatingActionButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => AddTranscation()),
+              MaterialPageRoute(builder: (context) => AddTransaction()),
             );
           },
            backgroundColor: Colors.orange,

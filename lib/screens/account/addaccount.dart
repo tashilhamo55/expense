@@ -21,8 +21,8 @@ class _AddAccountState extends State<AddAccount> {
               child: ClipOval(
                 child: Image.network(
                   'https://cdn.pixabay.com/photo/2021/07/24/07/23/chow-chow-6488846_1280.jpg',
-                  width: 150,  // adjust the size as needed
-                  height: 150, // adjust the size as needed
+                  width: 150,  
+                  height: 150, 
                   fit: BoxFit.cover,
                 ),
               ),
