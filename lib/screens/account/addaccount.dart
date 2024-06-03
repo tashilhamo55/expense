@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class AddAccount extends StatefulWidget {
@@ -12,14 +13,9 @@ class AddAccount extends StatefulWidget {
 class _AddAccountState extends State<AddAccount> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange,
-        title: Text('Accounts'),
-      ),
-
-      body: SingleChildScrollView(
+    return Container(
         child: Column(
+          
           children: [
             Center(
               child: ClipOval(
@@ -62,25 +58,30 @@ class _AddAccountState extends State<AddAccount> {
                       border: OutlineInputBorder(), labelText: 'Opening Balance'),
                 ),
           ),
-            Container(
-              
-              child: Padding(
-              padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Add your onPressed code here!
-                  },
-                  child: Text('Confirm'),
+
+             Align(
+                child: Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.only(top: 150),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Confirm',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      // Background color
+                    ),
+                  ),
                 ),
-              ),
-            ),
-        
+                           )
           
         ],
 
           
         )
-      )
+      
     );
   }
 }

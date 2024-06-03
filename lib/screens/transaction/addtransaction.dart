@@ -76,6 +76,7 @@ Future<void> loadDataTrans() async{
                 Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: DropdownButtonFormField<String>(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Account',
@@ -95,6 +96,8 @@ Future<void> loadDataTrans() async{
           Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: DropdownButtonFormField<String>(
+                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Expenses',
