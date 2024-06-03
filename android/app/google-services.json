@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "245292429740",
+    "project_id": "athangexpense",
+    "storage_bucket": "athangexpense.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245292429740:android:8afec1a3b0f49367718a09",
+        "android_client_info": {
+          "package_name": "com.example.expenses"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_8T99XP9D3eBmVAlSV3s9Kq8bmrfPsK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
