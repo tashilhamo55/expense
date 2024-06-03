@@ -132,7 +132,7 @@ Future<void> loadDataTrans() async{
             ),
             Container(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.7,
+                width: double.infinity,
                 margin: EdgeInsets.only(bottom: 10),
                 child: ElevatedButton(
                   onPressed: () {},

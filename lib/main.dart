@@ -39,10 +39,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
     //  home: LoginScreen(),
-      // home: SplashScreen(),
+      home: SplashScreen(),
         // home: ExpenseCard(),
       
-      home: AddTranscation(),
+      // home: AddTranscation(),
 
       // home: AddAccount(),
     );
